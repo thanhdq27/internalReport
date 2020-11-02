@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>801.6,2761.6</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>830.4,3936</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -84,7 +84,7 @@
       <AssemblyReference>Files.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Xử lý dữ liệu rời rạc từ các file excel thành 1 file tổng hợp" DisplayName="Excel" sap:VirtualizedContainerService.HintSize="475.2,2556.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Xử lý dữ liệu rời rạc từ các file excel thành 1 file tổng hợp" DisplayName="Excel" sap:VirtualizedContainerService.HintSize="628.8,3731.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="ListofFiles" />
       <Variable x:TypeArguments="sd:DataTable" Name="nextWeek" />
@@ -104,7 +104,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReadParaList.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="587.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ReadParaList.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="paraTab">[paraTab]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
@@ -115,12 +115,12 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="HandlePrequisite.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="587.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="HandlePrequisite.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="x:String" x:Key="memberReportsPath">[memberReportsPath]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+    <Assign sap:VirtualizedContainerService.HintSize="587.2,60" sap2010:WorkflowViewState.IdRef="Assign_9">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[consolidatedReportTemplatePath]</OutArgument>
       </Assign.To>
@@ -128,7 +128,7 @@
         <InArgument x:TypeArguments="x:String">[paraTab.Select("[Var]='consolidatedReportTemplatePath'")(0)(1).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+    <Assign sap:VirtualizedContainerService.HintSize="587.2,60" sap2010:WorkflowViewState.IdRef="Assign_10">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[consolidatedReportFolderPath]</OutArgument>
       </Assign.To>
@@ -136,7 +136,7 @@
         <InArgument x:TypeArguments="x:String">[paraTab.Select("[Var]='consolidatedReportFolderPath'")(0)(1).ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap2010:Annotation.AnnotationText="Danh sách tất cả những file báo cáo cá nhân được tải về từ mail outlook" DisplayName="Assign folder path containing report files" sap:VirtualizedContainerService.HintSize="433.6,104" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="Danh sách tất cả những file báo cáo cá nhân được tải về từ mail outlook" DisplayName="Assign folder path containing report files" sap:VirtualizedContainerService.HintSize="587.2,104" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[ListofFiles]</OutArgument>
       </Assign.To>
@@ -149,7 +149,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[consolidatedReportFolderPath]" DisplayName="Copy file template báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[consolidatedReportTemplatePath]">
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[consolidatedReportFolderPath]" DisplayName="Copy file template báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="587.2,52.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[consolidatedReportTemplatePath]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -157,7 +157,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CopyFile>
-    <ui:MoveFile ContinueOnError="{x:Null}" Destination="[consolidatedReportFolderPath + &quot;\ConsolidatedReport_&quot; + Now.Date.ToString(&quot;ddMMyyyy&quot;) + &quot;.xlsx&quot;]" DisplayName="Đổi tên file báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[consolidatedReportFolderPath + &quot;\ReportTemplate.xlsx&quot;]">
+    <ui:MoveFile ContinueOnError="{x:Null}" Destination="[consolidatedReportFolderPath + &quot;\ConsolidatedReport_&quot; + Now.Date.ToString(&quot;ddMMyyyy&quot;) + &quot;.xlsx&quot;]" DisplayName="Đổi tên file báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="587.2,52.8" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[consolidatedReportFolderPath + &quot;\ReportTemplate.xlsx&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -165,7 +165,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MoveFile>
-    <Sequence DisplayName="Lấy thông tin tuần làm báo cáo" sap:VirtualizedContainerService.HintSize="433.6,652.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
+    <Sequence DisplayName="Lấy thông tin tuần làm báo cáo" sap:VirtualizedContainerService.HintSize="587.2,652.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <Sequence.Variables>
         <Variable x:TypeArguments="s:DateTime" Name="BaseDate" />
         <Variable x:TypeArguments="s:DateTime" Name="in_Today" />
@@ -226,7 +226,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <Assign sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+    <Assign sap:VirtualizedContainerService.HintSize="587.2,60" sap2010:WorkflowViewState.IdRef="Assign_11">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int64">[weekIndex]</OutArgument>
       </Assign.To>
@@ -234,7 +234,7 @@
         <InArgument x:TypeArguments="x:Int64">[week]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Danh sách các ngày trong tuần" sap:VirtualizedContainerService.HintSize="433.6,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Danh sách các ngày trong tuần" sap:VirtualizedContainerService.HintSize="587.2,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(s:DateTime)">[listOfWeekDays]</OutArgument>
       </Assign.To>
@@ -242,7 +242,7 @@
         <InArgument x:TypeArguments="scg:List(s:DateTime)">[Enumerable.Range(0,7).Select(Function (x) Today.AddDays(x - Today.DayOfWeek +1 )).toList]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="433.6,290.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[consolidatedReportFolderPath + &quot;\ConsolidatedReport_&quot; + Now.Date.ToString(&quot;ddMMyyyy&quot;) + &quot;.xlsx&quot;]">
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="587.2,290.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[consolidatedReportFolderPath + &quot;\ConsolidatedReport_&quot; + Now.Date.ToString(&quot;ddMMyyyy&quot;) + &quot;.xlsx&quot;]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -265,25 +265,25 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="433.6,372.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ListofFiles]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="587.2,1547.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ListofFiles]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="241.6,238.4" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,1412.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Đọc các file báo cáo cá nhân" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="5000" Visible="False" WorkbookPath="[item]">
+            <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Đọc các file báo cáo cá nhân" sap:VirtualizedContainerService.HintSize="510.4,861.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="5000" Visible="False" WorkbookPath="[item]">
               <ui:ExcelApplicationScope.Body>
                 <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,580.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="476.8,752" sap2010:WorkflowViewState.IdRef="Sequence_2">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="sheetName" />
                       <Variable x:TypeArguments="x:Object" Name="lastSheet" />
@@ -295,34 +295,45 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ExcelReadRange AddHeaders="False" DataTable="[tab1]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_7" PreserveFormat="True" SheetName="Tuần này">
+                    <ui:ExcelReadRange AddHeaders="False" DataTable="[tab1]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="435.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_7" PreserveFormat="True" SheetName="Tuần này">
                       <ui:ExcelReadRange.Range>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
                         </InArgument>
                       </ui:ExcelReadRange.Range>
                     </ui:ExcelReadRange>
-                    <ui:ExcelReadRange AddHeaders="False" DataTable="[thisWeek]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_8" PreserveFormat="True" Range="[&quot;A9:J&quot; + tab1.Rows.Count.ToString]" SheetName="Tuần này" />
-                    <ui:InvokeVBA CodeFilePath="D:\HPT\1. Projects\2. RPA\Internal_WeeklyReport\Development\getLastSheet.vbs" DisplayName="Invoke VBA" EntryMethodName="getLastCreatedSheet" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_1" OutputValue="[lastSheet]" />
-                    <ui:ExcelReadRange AddHeaders="False" DataTable="[tab2]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_6" PreserveFormat="True" SheetName="[lastSheet.ToString]">
+                    <ui:ExcelReadRange AddHeaders="False" DataTable="[thisWeek]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="435.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_8" PreserveFormat="True" Range="[&quot;A9:J&quot; + tab1.Rows.Count.ToString]" SheetName="Tuần này" />
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="435.2,259.2" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                      <ui:CommentOut.Body>
+                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,180.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:InvokeVBA CodeFilePath="D:\HPT\1. Projects\2. RPA\Internal_WeeklyReport\Development\getLastSheet.vbs" DisplayName="Invoke VBA" EntryMethodName="getLastCreatedSheet" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="InvokeVBA_1" OutputValue="[lastSheet]" />
+                        </Sequence>
+                      </ui:CommentOut.Body>
+                    </ui:CommentOut>
+                    <ui:ExcelReadRange AddHeaders="False" DataTable="[tab2]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="435.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_6" PreserveFormat="True" SheetName="Tuần tiếp theo">
                       <ui:ExcelReadRange.Range>
                         <InArgument x:TypeArguments="x:String">
                           <Literal x:TypeArguments="x:String" Value="" />
                         </InArgument>
                       </ui:ExcelReadRange.Range>
                     </ui:ExcelReadRange>
-                    <ui:ExcelReadRange AddHeaders="False" DataTable="[nextWeek]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" PreserveFormat="True" Range="[&quot;A9:J&quot; + tab2.Rows.Count.ToString]" SheetName="[lastSheet.ToString]" />
+                    <ui:ExcelReadRange AddHeaders="False" DataTable="[nextWeek]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="435.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" PreserveFormat="True" Range="[&quot;A9:J&quot; + tab2.Rows.Count.ToString]" SheetName="Tuần tiếp theo" />
                   </Sequence>
                 </ActivityAction>
               </ui:ExcelApplicationScope.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:ExcelApplicationScope>
-            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Xử lý file báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[consolidatedReportFolderPath + &quot;\ConsolidatedReport_&quot; + Now.Date.ToString(&quot;ddMMyyyy&quot;) + &quot;.xlsx&quot;]">
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Xử lý file báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="510.4,418.4" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[consolidatedReportFolderPath + &quot;\ConsolidatedReport_&quot; + Now.Date.ToString(&quot;ddMMyyyy&quot;) + &quot;.xlsx&quot;]">
               <ui:ExcelApplicationScope.Body>
                 <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                   <ActivityAction.Argument>
@@ -341,7 +352,7 @@
               </ui:ExcelApplicationScope.Body>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
