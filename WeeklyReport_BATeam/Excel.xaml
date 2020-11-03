@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>818.4,4068.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>818.4,4150.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Excel_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -84,7 +84,7 @@
       <AssemblyReference>Files.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Xử lý dữ liệu rời rạc từ các file excel thành 1 file tổng hợp" DisplayName="Excel" sap:VirtualizedContainerService.HintSize="628.8,3864" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Xử lý dữ liệu rời rạc từ các file excel thành 1 file tổng hợp" DisplayName="Excel" sap:VirtualizedContainerService.HintSize="628.8,3945.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="ListofFiles" />
       <Variable x:TypeArguments="sd:DataTable" Name="nextWeek" />
@@ -125,7 +125,7 @@
         <OutArgument x:TypeArguments="x:String">[consolidatedReportTemplatePath]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[paraTab.Select("[Var]='consolidatedReportTemplatePath'")(0)(1).ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String">["Template/ReportTemplate.xlsx"]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="587.2,60" sap2010:WorkflowViewState.IdRef="Assign_10">
@@ -149,18 +149,18 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[consolidatedReportFolderPath]" DisplayName="Copy file template báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="587.2,52.8" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[consolidatedReportTemplatePath]">
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[consolidatedReportFolderPath]" DisplayName="Copy file template báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="587.2,160" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[consolidatedReportTemplatePath]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CopyFile>
-    <ui:MoveFile ContinueOnError="{x:Null}" Destination="[consolidatedReportFolderPath + &quot;\ConsolidatedReport_&quot; + Now.Date.ToString(&quot;ddMMyyyy&quot;) + &quot;.xlsx&quot;]" DisplayName="Đổi tên file báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="587.2,52.8" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[consolidatedReportFolderPath + &quot;\ReportTemplate.xlsx&quot;]">
+    <ui:MoveFile ContinueOnError="{x:Null}" Destination="[consolidatedReportFolderPath + &quot;\ConsolidatedReport_&quot; + Now.Date.ToString(&quot;ddMMyyyy&quot;) + &quot;.xlsx&quot;]" DisplayName="Đổi tên file báo cáo tổng hợp" sap:VirtualizedContainerService.HintSize="587.2,160" sap2010:WorkflowViewState.IdRef="MoveFile_1" Overwrite="True" Path="[consolidatedReportFolderPath + &quot;\ReportTemplate.xlsx&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -367,6 +367,5 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="587.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Process Done&quot;]" />
   </Sequence>
 </Activity>
