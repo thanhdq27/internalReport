@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MailHandle" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="818.4,2416.8" sap2010:WorkflowViewState.IdRef="MailHandle_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MailHandle" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="836.8,2856" sap2010:WorkflowViewState.IdRef="MailHandle_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="56">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -29,10 +29,11 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
-    </sco:Collection>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="29">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -62,9 +63,9 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
-    </sco:Collection>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="MailHandle" sap:VirtualizedContainerService.HintSize="416.8,2212" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="MailHandle" sap:VirtualizedContainerService.HintSize="657.6,2751.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="lateRecord" />
       <Variable x:TypeArguments="x:String" Default="bodyFile.txt" Name="createFile" />
@@ -74,42 +75,95 @@
       <Variable x:TypeArguments="x:Int64" Name="weekIndex" />
       <Variable x:TypeArguments="x:Int32" Name="getMonth" />
       <Variable x:TypeArguments="x:Int32" Name="getYear" />
+      <Variable x:TypeArguments="s:DateTime" Name="BaseDate" />
+      <Variable x:TypeArguments="x:Int64" Name="week" />
+      <Variable x:TypeArguments="sd:DataTable" Name="memberTab" />
+      <Variable x:TypeArguments="x:String" Name="refereeName" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="375.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="ReadParaList.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="616,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="paraTab">[paraTab]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="paraTab">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="paraTab" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="memberTab">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="memberTab" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
+      <ui:InvokeWorkflowFile.WorkflowFileName>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="Literal`1_1">ReadParaList.xaml</Literal>
+        </InArgument>
+      </ui:InvokeWorkflowFile.WorkflowFileName>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="375.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Outlook.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="616,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False">
       <ui:InvokeWorkflowFile.Arguments>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="lateRecords">[lateRecord]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
+      <ui:InvokeWorkflowFile.WorkflowFileName>
+        <InArgument x:TypeArguments="x:String">
+          <Literal x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="Literal`1_2">Outlook.xaml</Literal>
+        </InArgument>
+      </ui:InvokeWorkflowFile.WorkflowFileName>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="375.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Excel.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="x:Int64" x:Key="weekIndex">[weekIndex]</OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <Sequence sap:VirtualizedContainerService.HintSize="375.2,452.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence sap:VirtualizedContainerService.HintSize="616,68.8" sap2010:WorkflowViewState.IdRef="Sequence_11">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="today" />
+        <Variable x:TypeArguments="s:DateTime" Name="in_Today" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">
+            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="today" sap2010:WorkflowViewState.IdRef="VisualBasicReference`1_1" />
+          </OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[Now.Date.ToShortDateString]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="s:DateTime">[in_Today]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="s:DateTime">[Convert.ToDateTime(today)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign.To>
+          <OutArgument x:TypeArguments="s:DateTime">[BaseDate]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="s:DateTime">[new DateTime(in_Today.Year, in_Today.Month, 1)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int64">[week]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int64">[DateAndTime.DateDiff(DateInterval.WeekOfYear ,Basedate, in_Today, FirstDayOfWeek.Monday,FirstWeekOfYear.Jan1)]</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Sequence>
+    <Sequence sap:VirtualizedContainerService.HintSize="616,936.8" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-        <Assign.To>
-          <OutArgument x:TypeArguments="x:Int64">[weekIndex]</OutArgument>
-        </Assign.To>
-        <Assign.Value>
-          <InArgument x:TypeArguments="x:Int64">[weekIndex]</InArgument>
-        </Assign.Value>
-      </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign sap:VirtualizedContainerService.HintSize="574.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[getMonth]</OutArgument>
         </Assign.To>
@@ -117,7 +171,7 @@
           <InArgument x:TypeArguments="x:Int32">[Now.Date.Month]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign sap:VirtualizedContainerService.HintSize="574.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
         <Assign.To>
           <OutArgument x:TypeArguments="x:Int32">[getYear]</OutArgument>
         </Assign.To>
@@ -125,7 +179,7 @@
           <InArgument x:TypeArguments="x:Int32">[Now.Date.Year]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign sap:VirtualizedContainerService.HintSize="574.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[referee]</OutArgument>
         </Assign.To>
@@ -133,8 +187,43 @@
           <InArgument x:TypeArguments="x:String">[paraTab.Select("[Var]='refereeMail'")(0)(1).ToString]</InArgument>
         </Assign.Value>
       </Assign>
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[memberTab]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="574.4,544" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="524.8,395.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[row(0).ToString = referee]" sap:VirtualizedContainerService.HintSize="483.2,302.4" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <Sequence sap:VirtualizedContainerService.HintSize="304,152.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="262.4,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[refereeName]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[row(1).ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </If.Then>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+      </ui:ForEachRow>
     </Sequence>
-    <ui:CreateFile ContinueOnError="{x:Null}" DisplayName="Create file" sap:VirtualizedContainerService.HintSize="375.2,134.4" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="[createFile]" Path="bodyMail">
+    <ui:CreateFile ContinueOnError="{x:Null}" DisplayName="Create file" sap:VirtualizedContainerService.HintSize="616,134.4" sap2010:WorkflowViewState.IdRef="CreateFile_1" Name="[createFile]" Path="bodyMail">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -142,7 +231,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CreateFile>
-    <Sequence sap:VirtualizedContainerService.HintSize="375.2,630.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
+    <Sequence sap:VirtualizedContainerService.HintSize="616,630.4" sap2010:WorkflowViewState.IdRef="Sequence_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -261,7 +350,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ReadTextFile>
     </Sequence>
-    <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Dear Tươi,&quot; + &quot;&lt;br /&gt;&quot; +&#xA;&quot;Anh gửi danh sách những thành viên vi phạm tuần &quot;+ (weekIndex+1).ToString + &quot; tháng &quot; +getMonth.ToString + &quot;/&quot; + getYear.ToString +&quot; nhé!&quot; + &#xA;Environment.NewLine +bodyFile]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="375.2,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="Danh sách những người nộp muộn" To="[referee]">
+    <ui:SendOutlookMail Account="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="thanhdq@hpt.vn" Body="[&quot;Dear &quot; + refereeName + &quot;&lt;br /&gt;&quot; +&#xD;&#xA;&quot;Đây là danh sách những thành viên vi phạm tuần &quot;+ week.ToString + &quot; tháng &quot; +getMonth.ToString + &quot;/&quot; + getYear.ToString +&quot; nhé!&quot; + &#xD;&#xA;Environment.NewLine +bodyFile + &quot;&lt;br /&gt;&quot; + &quot;Trân trọng,&quot; + &quot;&lt;br /&gt;&quot; + &quot;Lưu ý: Đây là email tự động, đề nghị không reply lại email này.&quot;]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="616,146.4" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="Danh sách những người nộp muộn" To="[referee]">
       <ui:SendOutlookMail.Files>
         <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
       </ui:SendOutlookMail.Files>
@@ -272,6 +361,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:SendOutlookMail>
-    <ui:WriteTextFile DisplayName="Write Text File" FileName="[createFile]" sap:VirtualizedContainerService.HintSize="375.2,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[String.Empty]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="616,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Gửi mail thông báo danh sách thành viên vi phạm tuần thành công&quot;]" />
+    <ui:WriteTextFile DisplayName="Write Text File" FileName="[createFile]" sap:VirtualizedContainerService.HintSize="616,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[String.Empty]" />
   </Sequence>
 </Activity>

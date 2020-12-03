@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>818.4,832</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>812.8,732</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>HandlePrequisite_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="24">
@@ -105,6 +105,6 @@
         <InArgument x:TypeArguments="x:String">[memberReportPath]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="333.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[memberReportPath]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Tạo folder chứa báo cáo cá nhân của thành viên" sap:VirtualizedContainerService.HintSize="333.6,80.8" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[memberReportPath]" />
   </Sequence>
 </Activity>
