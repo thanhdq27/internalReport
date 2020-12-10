@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1947.2,3944</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1947.2,4009.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Outlook_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -78,7 +78,7 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Outlook" sap:VirtualizedContainerService.HintSize="1957.6,3839.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Outlook" sap:VirtualizedContainerService.HintSize="1957.6,3904.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="ThanhDQ@hpt.vn" Name="outlookAcc" />
       <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(Of String)]" Name="mailSenders" />
@@ -144,7 +144,7 @@
         </Assign.Value>
       </Assign>
     </Sequence>
-    <ui:GetOutlookMailMessages Account="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get all emails from members in team" DisplayName="Get Outlook Mail Messages" Filter="@SQL=urn:schemas:httpmail:subject LIKE '%Báo cáo tuần%' " GetAttachements="False" sap:VirtualizedContainerService.HintSize="1916,66.4" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[Emails]" OnlyUnreadMessages="False" Top="20">
+    <ui:GetOutlookMailMessages Account="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get all emails from members in team" DisplayName="Get Outlook Mail Messages" Filter="@SQL=(urn:schemas:httpmail:subject LIKE '%báo cáo tuần%')" GetAttachements="False" sap:VirtualizedContainerService.HintSize="1916,66.4" sap2010:WorkflowViewState.IdRef="GetOutlookMailMessages_1" MailFolder="Inbox" MarkAsRead="False" Messages="[Emails]" OnlyUnreadMessages="False" Top="30">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -242,7 +242,7 @@
               </Assign.Value>
             </Assign>
             <ExistsInCollection x:TypeArguments="x:String" Collection="[listOfMembers]" DisplayName="Exists In Collection" sap:VirtualizedContainerService.HintSize="1839.2,22.4" sap2010:WorkflowViewState.IdRef="ExistsInCollection`1_1" Item="[mailSender.ToLower]" Result="[mailExist]" />
-            <If Condition="[receivedTime &gt;= yesterday and receivedTime &lt;= tomorrow and mail.Subject.ToLower.Contains(&quot;ba&quot;)]" DisplayName="Giới hạn lọc mail nhận &amp; xử lý" sap:VirtualizedContainerService.HintSize="1839.2,1028" sap2010:WorkflowViewState.IdRef="If_9">
+            <If Condition="[receivedTime &gt;= yesterday and receivedTime &lt;= tomorrow and mail.Subject.ToLower.Contains(&quot;ba&quot;) and  mail.Subject.ToLower.Contains(&quot;báo cáo tuần&quot;)]" DisplayName="Giới hạn lọc mail nhận &amp; xử lý" sap:VirtualizedContainerService.HintSize="1839.2,1028" sap2010:WorkflowViewState.IdRef="If_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -383,7 +383,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1916,60" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Đã thu thập xong báo cáo cá nhân các thành viên !!&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1916,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Đã thu thập xong báo cáo cá nhân các thành viên !!&quot;]" />
     <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1916,833.6" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[listOfMembers]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
@@ -451,6 +451,6 @@
         <InArgument x:TypeArguments="sd:DataTable">[lateMembersDT]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1916,60" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Đã tổng hợp xong danh sách thành viên không tuân thủ đúng rule &quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1916,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Đã tổng hợp xong danh sách thành viên không tuân thủ đúng rule &quot;]" />
   </Sequence>
 </Activity>
