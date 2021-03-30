@@ -7,7 +7,7 @@
     "Files.Activities": "[1.0.0]",
     "Microsoft.Office.Interop.Excel": "[15.0.4795.1000]",
     "RenameFile.Activities": "[1.0.4]",
-    "UiPath.Excel.Activities": "[2.9.3]",
+    "UiPath.Excel.Activities": "[2.9.5]",
     "UiPath.Mail.Activities": "[1.9.3]",
     "UiPath.MicrosoftOffice365.Activities": "[1.5.0]",
     "UiPath.System.Activities": "[20.10.1]",
@@ -56,5 +56,6 @@
   ],
   "isTemplate": false,
   "templateProjectData": {},
-  "publishData": {}
+  "publishData": {},
+  "targetFramework": "Legacy"
 }
